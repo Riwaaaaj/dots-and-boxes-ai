@@ -1,26 +1,25 @@
-# Dots and Boxes AI
+# Dots and Boxes Game
 
 ## Overview
-A Python library providing a board model for the Dots and Boxes game, designed for AI training purposes.
+A Python implementation of the classic Dots and Boxes game with a web-based UI. Features a board model designed for AI training purposes.
 
 ## Project Structure
-- `src/dots_and_boxes/` - Main package source code
+- `app.py` - Flask web server
+- `templates/` - HTML templates
+  - `index.html` - Game UI
+- `static/` - Frontend assets
+  - `css/style.css` - Styling
+  - `js/game.js` - Game logic
+- `src/dots_and_boxes/` - Core game library
   - `board.py` - Board class implementation
   - `__init__.py` - Package exports
 - `examples/` - Usage examples
-  - `basic_usage.py` - Basic demonstration script
 - `tests/` - Unit tests
 
-## Setup
-The project uses Python 3.11 with setuptools for packaging. Install with:
-```bash
-pip install -e .
-```
-
 ## Running
-Run the example with:
+The web server runs on port 5000:
 ```bash
-python examples/basic_usage.py
+python app.py
 ```
 
 Run tests with:
@@ -28,7 +27,13 @@ Run tests with:
 python tests/test_board.py -v
 ```
 
-## Key Concepts
+## Game Rules
+- Players take turns drawing lines between dots
+- When a player completes a box (4 sides), they score a point and go again
+- Player 1 is Blue, Player 2 is Red
+- Game ends when all boxes are claimed
+
+## Key Technical Concepts
 - Board is parameterized by `rows` x `cols` boxes (default: 3x3)
 - Edges stored separately: horizontal and vertical
 - Provides state vector for AI/ML integration
